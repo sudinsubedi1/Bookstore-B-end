@@ -9,7 +9,7 @@ export const getBook = async (req, res) => {
 
     // If no books found, send a clear message
     if (!books || books.length === 0) {
-      return res.status(200).json({ message: "No books found in database", books: [] });
+      return res.status(200).json({ message: "No books found in database", book: [] });
     }
 
     res.status(200).json(books);

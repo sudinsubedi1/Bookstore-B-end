@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // Environment variables
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 const MONGO_URI = process.env.MONGO_URI;
 
 // MongoDB connection
