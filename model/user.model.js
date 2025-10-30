@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   role: { type: String, enum: ["user", "admin"], default: "user" },
-  tokens: [{ token: String }], // Track active JWT tokens
+  tokens: [{ token: String }], 
 });
 
 const User = mongoose.model("User", userSchema);
