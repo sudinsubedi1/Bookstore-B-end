@@ -13,17 +13,19 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors()); // Allow all origins; restrict if needed
 app.use(express.json());
 
 // Environment variables
 const PORT = process.env.PORT || 4000;
-const URI = process.env.MongoDBURI;
+const MONGO_URI = process.env.MONGO_URI; // Make sure Render has this env variable set
 
-// Connect to MongoDB Atlas
+// MongoDB connection
 const connectDB = async () => {
   try {
-    await mongoose.connect(URI);
+    await mongoose.connect(MONGO_URI, {
+      
+    });
     console.log("✅ Connected to MongoDB Atlas");
   } catch (error) {
     console.error("❌ MongoDB connection error:", error);
@@ -33,7 +35,12 @@ const connectDB = async () => {
 
 connectDB();
 
-// Routes
+// Root route for testing
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+
+// API routes
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 app.use("/cart", cartRoute);
