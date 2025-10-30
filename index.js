@@ -32,8 +32,11 @@ const connectDB = async () => {
 };
 
 connectDB();
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 
-app.use("/book", bookRoute);
+
 
 // API routes
 app.use("/book", bookRoute);   // GET /book → all books, GET /book/:id → single book
