@@ -11,5 +11,4 @@ const bookSchema = new mongoose.Schema({
   sold: { type: Number },
 });
 
-const Book = mongoose.model("Book", bookSchema, "books");
-export default Book;
+export const Book = mongoose.model("Book", bookSchema, "book"); // 👈 Use named export
